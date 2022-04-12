@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DoAn_LTW.Models.GioHang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3><span>Giỏ Hàng</span></h3>
+        <!--/w3_short-->
+        <div class="services-breadcrumb">
+            <div class="agile_inner_breadcrumb">
+
+                <ul class="w3_short">
+                    <li><a @Html.ActionLink("Trang Chủ", "Index", "Home")</a><i>|</i></li>
+                    <li>Giỏ Hàng</li>
+                </ul>
+            </div>
+        </div>
+        <!--//w3_short-->
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tensach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.giaban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.thanhtien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.tensach)
+    </td>
+    <td> <img src="@item.hinh" width="180" /></td>
+    @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { id = item.masach }))
+    {
+        <td>
+            @String.Format("{0:0,0}", item.giaban) VNĐ
+        </td>
+        <td>
+            <input type="number" min="1" name="txtSoLuong" value="@item.soluong" />
+        </td>
+        <td>
+            @String.Format("{0:0,0}", @Html.DisplayFor(modelItem => item.thanhtien)) VNĐ
+        </td>
+        <td>
+            | @Html.ActionLink("Xóa", "XoaGioHang", new { id = item.masach })
+        </td>
+
+        <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
+    }
+</tr>
+    }
+    <tr style="font-weight:bold; text-align:left; color:red">
+        <td colspan="2"> Số loại Sản Phẩm: @ViewBag.TongSoLuongSanPham</td>
+        <td colspan="2"> Số lượng Sản Phẩm: @ViewBag.TongSoLuong</td>
+        <td colspan="4"> Tổng tiền: @String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ</td>
+    </tr>
+    <tr style="font-weight:bold; color:yellow;text-align:right">
+        <td colspan="5">
+            @Html.ActionLink("Xóa Giỏ Hàng", "XoaTatCaGioHang")
+        </td>
+        <td colspan="5">
+            @Html.ActionLink("Đặt hàng", "DatHang", "GioHang")
+        </td>
+    </tr>
+</table>

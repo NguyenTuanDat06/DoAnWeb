@@ -1,0 +1,84 @@
+﻿@model  IEnumerable<ThucAn>
+@using DoAn_LTW.Models;
+@{
+    ViewBag.Title = "KQTimKiem";
+    Layout = "~/Views/Shared/AdminLayou.cshtml";
+}
+
+<link href="~/Content/css/style4.css" rel="stylesheet" />
+
+<div class="header-bot">
+    <div class="header-bot_inner_wthreeinfo_header_mid">
+        <div class="col-md-4 header-middle">
+            @using (Html.BeginForm("KQTimKiem", "TimKiem"))
+            {
+                <input type="search" name="TuKhoa" placeholder="Tìm Kiếm . . ." required="">
+                <input type="submit" value=" ">
+                <div class="clearfix"></div>
+            }
+        </div>
+    </div>
+</div>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label" style="font-size :14px">Tên Loại</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Tên Thức Ăn</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Mô Tả</label>
+
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Hình</label>
+
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Giá Bán</label>
+
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Số Lượng Tồn</label>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheLoai.tenloai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenthucan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mota)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.hinh)" width="100" height="150" />
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.giaban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soluongton)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", "Admin", new { id = item.mathucan }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Chi Tiết", "Detail", "Admin", new { id = item.mathucan }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Xóa", "Delete", "Admin", new { id = item.mathucan }, new { @class = "btn btn-success" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+

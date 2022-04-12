@@ -1,0 +1,36 @@
+﻿@model  IEnumerable<ThucAn>
+@using DoAn_LTW.Models;
+<link href="~/Content/css/style2.css" rel="stylesheet" />
+<div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3 product-men">
+                        <div class="men-pro-item simpleCart_shelfItem">
+                            <div class="men-thumb-item">
+                                <img src="@item.hinh" alt="hinh thumnail" width="200" height="300" class="pro-image-front" />
+                                <img src="@item.hinh" alt="hinh thumnail" width="200" height="300" class="pro-image-back" />
+                            </div>
+                            <div class="item-info-product ">
+                                <h4><a>@item.tenthucan</a></h4>
+                                <div class="info-product-price">
+                                    <span class="item_price">
+                                        @String.Format("{0:0,0}", item.giaban) VNĐ
+                                    </span>
+                                    <br />
+                                    <span class="item_price">Số Lượng còn Lại : @item.soluongton</span>
+                                </div>
+                            </div>
+                            <div class="container1">
+                                <div class="btn1">
+                                    <a href="@Url.Action("Detail","SanPham", new { id = item.mathucan })">Chi  Tiết </a>
+                                </div>
+                                <div class="btn1">
+                                    <a href="@Url.Action("ThemGioHang", "GioHang",new { @id = item.mathucan, @strURL = Request.Url.ToString() })">Đặt Hàng</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+

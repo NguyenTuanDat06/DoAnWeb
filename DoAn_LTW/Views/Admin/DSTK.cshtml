@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DoAn_LTW.Models.KhachHang>
+
+@{
+    ViewBag.Title = "DSTK";
+    Layout = "~/Views/Shared/AdminLayou.cshtml";
+}
+<div class="header-bot">
+    <div class="header-bot_inner_wthreeinfo_header_mid">
+        <div class="col-md-4 header-middle">
+            @using (Html.BeginForm("KQTimKiemTK", "TimKiem"))
+            {
+                <input type="search" name="TuKhoa" placeholder="Tìm Kiếm . . ." required="">
+                <input type="submit" value=" ">
+                <div class="clearfix"></div>
+            }
+        </div>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label" style="font-size :14px">Họ Tên</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Email</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Địa Chỉ</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Số Điện Thoại</label>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.hoten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diachi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dienthoai)
+        </td>
+        <td>
+            @Html.ActionLink("Reset Mật Khẩu", "EditTK", new { id=item.makh }) 
+        </td>
+    </tr>
+}
+
+</table>

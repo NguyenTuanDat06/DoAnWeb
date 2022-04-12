@@ -1,0 +1,89 @@
+﻿@model DoAn_LTW.Models.KhachHang
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/Style2.css" rel="stylesheet" />
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3><span>Đăng Ký Tài Khoản</span></h3>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-group">
+    <img src="~/Content/img/logo.png" alt="Alternate Text" width="300" height="300" class="logonguoidung" />
+</div>
+<div class="container">
+    <h1 style=" color:red ; text-align:right ; font-size:34px" ;>@ViewBag.ThongBao</h1>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <strong class="control-label col-md-2" style="font-size :14px">Họ và tên</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.hoten, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hoten, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <strong class="control-label col-md-2" style="font-size :14px">Email</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong class="control-label col-md-2" style="font-size :14px">Mật Khẩu</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.matkhau, new { htmlAttributes = new { Type = "password", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="MatKhauXacNhan">
+                Mật khẩu xác nhận
+            </label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line input-validation-error"
+                       data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!"
+                       id="MatKhauXacNhan" name="MatKhauXacNhan" type="password" value="" aria-
+                       describedby="MatKhauXacNhan-error" aria-invalid="true">
+
+                @ViewData["NhapMKXN"]
+                @ViewData["MatKhauGiongNhau"]
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong class="control-label col-md-2" style="font-size :14px">Địa chỉ</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.diachi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong class="control-label col-md-2" style="font-size :14px">Số Điện Thoại</strong>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dienthoai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dienthoai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Tạo" class="signup" />
+        </div>
+    </div>
+
+</div>
+
+}
+

@@ -1,0 +1,92 @@
+﻿@model  IEnumerable<ThucAn>
+@using DoAn_LTW.Models;
+
+@{ IEnumerable<ThucAn> listheo = (IEnumerable<ThucAn>)ViewBag.listheo;
+    IEnumerable<ThucAn> listga = (IEnumerable<ThucAn>)ViewBag.listga;
+    IEnumerable<ThucAn> listvit = (IEnumerable<ThucAn>)ViewBag.listvit;
+    IEnumerable<ThucAn> listde = (IEnumerable<ThucAn>)ViewBag.listde; }
+
+
+<!-- banner -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Đến Với Chúng Tôi</h3>
+                    <p>Là Lựa Chọn Chính Xác Của Bạn</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="item item2">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Sựa Hài lòng Của Bạn</h3>
+                    <p>Sẽ Giúp Chúng Tôi Phát Triển Mạnh Mẽ</p>
+                </div>
+            </div>
+        </div>
+        <div class="item item3">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Chúc Các Bạn</h3>
+                    <p>Có Sự Lựa Chọn Phù Hợp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!-- The Modal -->
+</div>
+
+<!-- /new_arrivals -->
+<div class="new_arrivals_agile_w3ls_info">
+                    <div class="container">
+                        <h3 class="wthree_text_info"><span>Bộ Sản Phẩm</span></h3>
+                        <div id="horizontalTab">
+                            <ul class="resp-tabs-list">
+                                <li> Heo </li>
+                                <li> Gà</li>
+                                <li> Vịt</li>
+                                <li> Dê</li>
+                            </ul>
+                            <div class="resp-tabs-container">
+                                <div class="tab1">
+                                    @Html.Partial("~/Views/SanPham/SanPhamList.cshtml", listheo)
+                                </div>
+                            </div>
+                            <div class="resp-tabs-container">
+                                <div class="tab2">
+                                    @Html.Partial("~/Views/SanPham/SanPhamList.cshtml", listga)
+                                </div>
+                            </div>
+                            <div class="resp-tabs-container">
+                                <div class="tab3">
+                                    @Html.Partial("~/Views/SanPham/SanPhamList.cshtml", listvit)
+                                </div>
+                            </div>
+                            <div class="resp-tabs-container">
+                                <div class="tab4">
+                                    @Html.Partial("~/Views/SanPham/SanPhamList.cshtml", listde)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+

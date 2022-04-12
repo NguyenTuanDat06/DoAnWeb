@@ -1,0 +1,75 @@
+﻿@model  DoAn_LTW.Models.ThucAn
+@using DoAn_LTW.Models
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3><span>Chi Tiết Sản Phẩm</span></h3>
+    </div>
+</div>
+
+<div class="container">
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label class="control-label col-md-2" style="font-size :14px">Tên Loại</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.tenloai)
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-2" style="font-size :14px">Tên Thức Ăn</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenthucan)
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-2" style="font-size :14px">Mô Tả</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-2" style="font-size :14px">Hình Ảnh</label>
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.hinh)" width="200" height="300" />
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-2" style="font-size :14px">Giá Bán</label>
+
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", @Html.DisplayFor(model => model.giaban)) VNĐ
+        </dd>
+
+        <dt>
+            <label class="control-label col-md-2" style="font-size :14px">Số lượng Còn :</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+    </dl>
+    <div class="btn1">
+        @Html.ActionLink("Quay Lại", "Index", "Home" )
+    </div>
+</div>
+

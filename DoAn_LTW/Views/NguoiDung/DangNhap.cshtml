@@ -1,0 +1,53 @@
+﻿@model DoAn_LTW.Models.KhachHang
+
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/Style2.css" rel="stylesheet" />
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3><span>Đăng Nhập</span></h3>
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="container">
+    <div class="form-group">
+        <img src="~/Content/img/logo.png" alt="Alternate Text" width="300" height="300" class="logonguoidung" />
+    </div>
+
+    <div class="form-horizontal">
+        <h1 style=" color:red ; text-align:right ; font-size:34px" ;>@ViewBag.ThongBao</h1>
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <strong class="control-label col-md-2" style="font-size :14px">Email Đăng Nhập</strong>
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong class="control-label col-md-2" style="font-size :14px">Mật Khẩu</strong>
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.matkhau, new { htmlAttributes = new { Type = "password", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đăng Nhập" class="signup" />
+            </div>
+        </div>
+    </div>
+</div>
+}

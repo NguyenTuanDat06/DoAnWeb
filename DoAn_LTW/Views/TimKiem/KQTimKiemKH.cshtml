@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DoAn_LTW.Models.ThucAn>
+ @using DoAn_LTW.Models;
+
+@{
+    ViewBag.Title = "KQTimKiemKH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/style2.css" rel="stylesheet" />
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3><span>Kết Quả Tìm Kiếm</span></h3>
+    </div>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+<div class="col-md-3 product-men">
+    <div class="men-pro-item simpleCart_shelfItem">
+        <div class="men-thumb-item">
+            <img src="@item.hinh" alt="hinh thumnail" width="200" height="300" class="pro-image-front" />
+            <img src="@item.hinh" alt="hinh thumnail" width="200" height="300" class="pro-image-back" />
+        </div>
+        <div class="item-info-product ">
+            <h4><a>@item.tenthucan</a></h4>
+            <div class="info-product-price">
+                <span class="item_price">
+                    @String.Format("{0:0,0}", item.giaban) VNĐ
+                </span>
+                <br />
+                <span class="item_price">Số Lượng còn Lại : @item.soluongton</span>
+            </div>
+        </div>
+        @if (Session["email"] != null && Session["email"] != "")
+        {
+            KhachHang kh = (KhachHang)Session["email"];
+            if (kh.loaitv == 1)
+            {
+<div class="container1">
+    <div class="btn1">
+        <a href="@Url.Action("Edit","SanPham", new { id = item.mathucan })">Chỉnh Sửa </a>
+    </div>
+    <div class="btn1">
+        <a href="@Url.Action("Delete","SanPham", new { id = item.mathucan })">Xóa Sản Phẩm </a>
+    </div>
+</div>                    }
+                }
+        <div class="container1">
+            <div class="btn1">
+                <a href="@Url.Action("Detail","SanPham", new { id = item.mathucan })">Chi  Tiết </a>
+            </div>
+            <div class="btn1">
+                <a href="@Url.Action("ThemGioHang", "GioHang",new { @id = item.mathucan, @strURL = Request.Url.ToString() })">Đặt Hàng</a>
+            </div>
+        </div>
+
+    </div>
+</div>}
+</div>

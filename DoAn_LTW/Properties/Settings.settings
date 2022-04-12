@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DoAn_LTW.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MAIL_REGISTER_SUBJECT" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Đăng ký</Value>
+    </Setting>
+    <Setting Name="MAIL_REGISTER_BODY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">xin chào {0}! Chúc mừng bạn đã đăng ký thành công</Value>
+    </Setting>
+    <Setting Name="MAIL_FROM" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">4thangngocabc@gmail.com</Value>
+    </Setting>
+    <Setting Name="MAIL_PASSWORD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">12322321</Value>
+    </Setting>
+    <Setting Name="MAIL_ORDER_BODY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">xin chào {0}! Chúc mừng bạn đã đặt hàng thành công</Value>
+    </Setting>
+    <Setting Name="MAIL_TAIKHOAN_BODY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">xin chào {0}! Mật khẩu của bạn đã được reset , mật khẩu của bạn là :123456 . Vui lòng không được tiết lộ</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

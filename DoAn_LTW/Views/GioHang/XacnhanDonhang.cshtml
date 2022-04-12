@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "XacnhanDonhang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-head_agile_info_w3l">
+    <div class="container">
+        <h3><span>Thông Báo</span></h3>
+    </div>
+</div>
+<div class="container">
+    <br />
+    <h1 style="text-align:center"> Đơn Hàng Đã Được Xác Nhận</h1>
+    <div class="banner_bottom_agile_info">
+        <div class="container">
+            <div class="agile_ab_w3ls_info">
+                <div class="col-md-6 ab_pic_w3ls">
+                    <img src="~/Content/img/logo.png" width="400px" height="350px" />
+                </div>
+                <div class="col-md-6 ab_pic_w3ls_text_info">
+                    <h5>Cửa Hàng Thức Ăn Gia Súc ABC</h5>
+                    <h4> Cảm ơn bạn đã lựa chọn sản phẩm của chúng tôi</h4>
+                    <h4> Hẹn Gặp lại</h4>
+                </div>
+                <div class="btn btn-default pull-right">
+                    @Html.ActionLink("Về trang chủ", "Index", "Home")
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

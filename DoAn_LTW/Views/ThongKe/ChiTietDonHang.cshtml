@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DoAn_LTW.Models.ChiTietDonHang>
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/AdminLayou.cshtml";
+}
+<br />
+<br />
+<div class="container">
+    <h3><span>Chi Tiết Đơn Hàng</span></h3>
+</div>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            <label class="control-label" style="font-size :14px">Địa Chỉ Giao</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Tên Sản Phẩm</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Số Lượng</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Giá</label>
+        </th>
+        <th>
+            <label class="control-label" style="font-size :14px">Thành Tiền</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonHang.diachigiao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThucAn.tenthucan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soluong)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", @Html.DisplayFor(modelItem => item.gia)) VNĐ
+            </td>
+            <td>
+                @String.Format("{0:0,0}", @Html.DisplayFor(modelItem => item.thanhtien)) VNĐ
+
+            </td>
+        </tr>
+}
+    <tr style-"font-weight:bold; text-align:right; color:red">
+        <td colspan="2"> </td>
+        <td colspan="2"> </td>
+        <td colspan="5">
+            Tổng Tiền:
+            @String.Format("{0:0,0}", @ViewBag.TongTien) VNĐ
+        </td>
+    </tr>
+    <tr style="font-weight:bold; text-align:right">
+        <td colspan="6">
+            @Html.ActionLink("Trở về Thống Kê Đơn Hàng", "ThongKeDonHang", "ThongKe")
+        </td>
+    </tr>
+
+</table>

@@ -1,0 +1,101 @@
+﻿<body>
+    <!-- /banner_bottom_agile_info -->
+    <div class="page-head_agile_info_w3l">
+        <div class="container">
+            <h3><span>Giới Thiệu</span></h3>
+            <!--/w3_short-->
+            <div class="services-breadcrumb">
+                <div class="agile_inner_breadcrumb">
+
+                    <ul class="w3_short">
+                        <li><a @Html.ActionLink("Trang Chủ", "Index", "Home")</a><i>|</i></li>
+                        <li>Giới Thiệu</li>
+                    </ul>
+                </div>
+            </div>
+            <!--//w3_short-->
+        </div>
+    </div>
+    <!-- /banner_bottom_agile_info -->
+    <div class="banner_bottom_agile_info">
+        <div class="container">
+            <div class="agile_ab_w3ls_info">
+                <div class="col-md-6 ab_pic_w3ls">
+                    <img src="~/Content/img/main1.png" alt=" " class="img-responsive" />
+                </div>
+                <div class="col-md-6 ab_pic_w3ls_text_info">
+                    <h5>Cửa Hàng Thức Ăn Gia Súc ABC</h5>
+                    <p>
+                        Với hệ thống kho rộng lớn, nguồn hàng có sẵn dồi dào, chúng tôi cung cấp các sản phẩm thức ăn nuôi gia cầm, gia súc mẫu mã đa dạng.
+                        <br />
+                        ✔ Cam kết nguồn thức ăn chất lượng, giàu dưỡng chất cần thiết.
+                        <br />
+                        ✔ Miễn phí vận chuyển tận nơi trong nội thành và các tỉnh lân cận.
+                        <br />
+                        ✔ Khách hàng được nhận thêm nhiều ưu đãi giảm giá với đơn hàng trên 2 tấn.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- //footer -->
+    <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- cart-js -->
+    <script src="js/minicart.min.js"></script>
+    <script>
+        // Mini Cart
+        paypal.minicart.render({
+            action: '#'
+        });
+
+        if (~window.location.search.indexOf('reset=true')) {
+            paypal.minicart.reset();
+        }
+    </script>
+
+    <!-- //cart-js -->
+    <!-- stats -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+    <!-- //stats -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- for bootstrap working -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+</html>

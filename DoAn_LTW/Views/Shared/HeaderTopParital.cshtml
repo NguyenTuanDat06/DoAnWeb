@@ -1,0 +1,22 @@
+﻿@using DoAn_LTW.Models
+<div class="header" id="home">
+    <div class="container">
+        <ul>
+            @if (Session["email"] != null && Session["email"] != "")
+            {
+                KhachHang kh = (KhachHang)Session["email"];
+                <li> Chào @kh.hoten</li>
+                <li> <a href="#" data-toggle="modal" data-target="#myModal">  @Html.ActionLink("Đăng Xuất", "DangXuat", "NguoiDung") </a></li>
+            }
+            else
+            {
+                <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>@Html.ActionLink("Đăng Nhập", "DangNhap", "NguoiDung") </a></li>
+
+                <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>@Html.ActionLink("Tạo Tại Khoản", "DangKy", "NguoiDung") </a></li>
+            }
+            <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 0909686868</li>
+            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:4thangngoc@gmail.com">4thangngoc@gmail.com</a></li>
+        </ul>
+</div>
+    </div>
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DoAn_LTW.Models.DonHang>
+
+@{
+    ViewBag.Title = "ThongKeDonHang";
+    Layout = "~/Views/Shared/AdminLayou.cshtml";
+}
+<link href="~/Content/css/style4.css" rel="stylesheet" />
+<br />
+<table class="table">
+        <tr>
+            <th>
+                <label class="control-label" style="font-size :14px">Họ Tên</label>
+            </th>
+            <th>
+                <label class="control-label" style="font-size :14px">Ngày Đặt</label>
+
+            </th>
+            <th>
+                <label class="control-label" style="font-size :14px">Ngày Giao</label>
+
+            </th>
+            <th>
+                <label class="control-label" style="font-size :14px">Địa Chỉ Giao</label>
+
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KhachHang.hoten)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngaydat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngaygiao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.diachigiao)
+                </td>
+                <td>
+                    @Html.ActionLink("Chi Tiết", "ChiTietDonHang", new { id = item.madon })
+                </td>
+            </tr>
+        }
+
+    </table>

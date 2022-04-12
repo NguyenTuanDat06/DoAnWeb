@@ -1,0 +1,86 @@
+﻿@model DoAn_LTW.Models.ThucAn
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayou.cshtml";
+}
+<br />
+<br />
+<div class="container">
+    <h3><span>Xóa Sản Phẩm</span></h3>
+</div>
+<div>
+    <div class="container">
+        <dl class="dl-horizontal">
+            <hr />
+            <dt>
+                <label class="control-label col-md-2" style="font-size :14px">Tên Loại</label>
+
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TheLoai.tenloai)
+            </dd>
+
+            <dt>
+                <label class="control-label col-md-2" style="font-size :14px">Tên Thức Ăn</label>
+
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tenthucan)
+            </dd>
+
+            <dt>
+                <label class="control-label col-md-2" style="font-size :14px">Mô Tả</label>
+
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.mota)
+            </dd>
+
+            <dt>
+                <label class="control-label col-md-2" style="font-size :14px">Hình Ảnh</label>
+
+            </dt>
+
+            <dd>
+                <img src="@Html.DisplayFor(model => model.hinh)" width="200" height="300" />
+
+            </dd>
+
+            <dt>
+                <label class="control-label col-md-2" style="font-size :14px">Giá Bán</label>
+
+            </dt>
+
+            <dd>
+                @String.Format("{0:0,0}", @Html.DisplayFor(model => model.giaban)) VNĐ
+
+            </dd>
+
+            <dt>
+                <label class="control-label col-md-2" style="font-size :14px">Số lượng Còn :</label>
+
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.soluongton)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <h4 style="margin-left:50px" class="logonguoidung"> Bạn Có Muốn Xóa Không</h4>
+
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-success" /> |
+                @Html.ActionLink("Quay Lại", "Index", "Admin", new { @class = "btn btn-success" })
+            </div>
+        }
+    </div>
+</div>
